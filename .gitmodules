@@ -1,0 +1,12 @@
+[submodule "NoEngineLibs/DelphiEGL"]
+	path = NoEngineLibs/DelphiEGL
+	url = git@github.com:TeamFND/DelphiEGL.git
+[submodule "NoEngineLibs/OpenGLES30"]
+	path = NoEngineLibs/OpenGLES30
+	url = git@github.com:TeamFND/OpenGLES30.git
+[submodule "NoEngineLibs/AGLogs"]
+	path = NoEngineLibs/AGLogs
+	url = git@github.com:TeamFND/AGLogs.git
+[submodule "NoEngineLibs/Imaging"]
+	path = NoEngineLibs/Imaging
+	url = git@github.com:galfar/imaginglib.git

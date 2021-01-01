@@ -1,0 +1,7 @@
+1-32ARGB use alpha
+2-32ARGB alpha=255
+3-24-RGB
+4-16-RGBA 5551
+5-16-RGB 555
+6-16-RGB 565
+7-8 with paletre

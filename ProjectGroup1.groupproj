@@ -1,0 +1,108 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9E558102-388E-4EAF-836C-EE373F62BF14}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Sources\MainGame.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DataCompliter\Sources\BMPView\BMPView.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DataCompliter\Sources\AGPView\AGPView.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DataCompliter\Sources\toAGP\toAGP.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DataCompliter\Sources\toRGBABMP\toRGBABMP.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DataCompliter\Sources\Main\Main.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DataCompliter\Sources\UnArcRGBABMP\UnArcRGBABMP.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="MainGame">
+        <MSBuild Projects="Sources\MainGame.dproj"/>
+    </Target>
+    <Target Name="MainGame:Clean">
+        <MSBuild Projects="Sources\MainGame.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MainGame:Make">
+        <MSBuild Projects="Sources\MainGame.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BMPView">
+        <MSBuild Projects="DataCompliter\Sources\BMPView\BMPView.dproj"/>
+    </Target>
+    <Target Name="BMPView:Clean">
+        <MSBuild Projects="DataCompliter\Sources\BMPView\BMPView.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BMPView:Make">
+        <MSBuild Projects="DataCompliter\Sources\BMPView\BMPView.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="AGPView">
+        <MSBuild Projects="DataCompliter\Sources\AGPView\AGPView.dproj"/>
+    </Target>
+    <Target Name="AGPView:Clean">
+        <MSBuild Projects="DataCompliter\Sources\AGPView\AGPView.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AGPView:Make">
+        <MSBuild Projects="DataCompliter\Sources\AGPView\AGPView.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="toAGP">
+        <MSBuild Projects="DataCompliter\Sources\toAGP\toAGP.dproj"/>
+    </Target>
+    <Target Name="toAGP:Clean">
+        <MSBuild Projects="DataCompliter\Sources\toAGP\toAGP.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="toAGP:Make">
+        <MSBuild Projects="DataCompliter\Sources\toAGP\toAGP.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="toRGBABMP">
+        <MSBuild Projects="DataCompliter\Sources\toRGBABMP\toRGBABMP.dproj"/>
+    </Target>
+    <Target Name="toRGBABMP:Clean">
+        <MSBuild Projects="DataCompliter\Sources\toRGBABMP\toRGBABMP.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="toRGBABMP:Make">
+        <MSBuild Projects="DataCompliter\Sources\toRGBABMP\toRGBABMP.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Main">
+        <MSBuild Projects="DataCompliter\Sources\Main\Main.dproj"/>
+    </Target>
+    <Target Name="Main:Clean">
+        <MSBuild Projects="DataCompliter\Sources\Main\Main.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Main:Make">
+        <MSBuild Projects="DataCompliter\Sources\Main\Main.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UnArcRGBABMP">
+        <MSBuild Projects="DataCompliter\Sources\UnArcRGBABMP\UnArcRGBABMP.dproj"/>
+    </Target>
+    <Target Name="UnArcRGBABMP:Clean">
+        <MSBuild Projects="DataCompliter\Sources\UnArcRGBABMP\UnArcRGBABMP.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UnArcRGBABMP:Make">
+        <MSBuild Projects="DataCompliter\Sources\UnArcRGBABMP\UnArcRGBABMP.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="MainGame;BMPView;AGPView;toAGP;toRGBABMP;Main;UnArcRGBABMP"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="MainGame:Clean;BMPView:Clean;AGPView:Clean;toAGP:Clean;toRGBABMP:Clean;Main:Clean;UnArcRGBABMP:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="MainGame:Make;BMPView:Make;AGPView:Make;toAGP:Make;toRGBABMP:Make;Main:Make;UnArcRGBABMP:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

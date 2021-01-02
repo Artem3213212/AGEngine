@@ -68,14 +68,15 @@ __recovery/
 # Castalia statistics file (since XE7 Castalia is distributed with Delphi)
 *.stat
 *.log
+
+#FPC 
+*.compiled
 Bin/python36/
-Bin64/python36/
 Sources/Android/
 Temp/
 Data/img.zip
 !Bin/libegl.dll
 !Bin/libgles_cm.dll
 !Bin/libglesv3.dll
-!Bin64/libegl.dll
-!Bin64/libglesv3.dll
-!Bin64/libgles_cm.dll
+Bin/*/
+Shaders/ShadersResouces.*.pas

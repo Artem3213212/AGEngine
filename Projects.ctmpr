@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <MultiProject FileVersion="1">
+    <Elements Count="3">
+      <Element0 FileName="DataCompliter\Sources\ShaderBuider\ShaderBuider.ctpr"/>
+      <Element1 FileName="DataCompliter\Sources\Packager\packager.ctpr"/>
+      <Element2 FileName="Sources\MainGame.ctpr">
+        <BuildModes Count="6"/>
+        <Mode1 Name="Default"/>
+        <Mode2 Name="Win32Debug" Compile="True"/>
+        <Mode3 Name="Win64Debug"/>
+        <Mode4 Name="Android_Debug-arm"/>
+        <Mode5 Name="Android_Debug-arm64"/>
+        <Mode6 Name="Android_Debug-x86"/>
+      </Element2>
+    </Elements>
+  </MultiProject>
+</CONFIG>

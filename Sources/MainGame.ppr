@@ -1,0 +1,249 @@
+{$i lib/main.conf}
+
+{$IFDEF ANDROID}
+library MainGame;
+{$ELSE}
+{$APPTYPE console}
+program MainGame;
+{$ENDIF}
+
+//{$APPTYPE Console}  
+{$IFDEF MSWINDOWS}
+  {$APPTYPE GUI}
+{$ENDIF}
+//{$WEAKLINKRTTI OFF}
+
+//{$Define PyExample}
+//{$UNDEF Stanislav}
+{$IFNDEF Stanislav}
+  {$IFNDEF PyExample}
+    {$IFNDEF SpaceStrat}
+      {$Define Test}
+    {$ENDIF}
+  {$ENDIF}
+{$ENDIF}
+
+uses        
+  {$IFDEF UNIX}
+    cthreads,cmem,
+  {$ENDIF}
+  {$IFDEF ANDROID}
+    jni,AndroidEasyGlue,
+  {$ELSE}
+    //heaptrc,
+  {$ENDIF}
+  SysUtils,
+  Classes,
+  AG.Game,
+  AG.Types,
+  AG.Screen,
+  AG.Graphic,
+  AG.Windows,
+  AG.ImagingAGP,
+  {$IFNDEF Test}
+    AGE.Previewlvl,
+    AG.Levels,
+    {Vulkan in '..\NoEngineLibs\Vulkan\Vulkan.pas',
+    PythonEngine in '..\NoEngineLibs\PythonEngine.pas',
+    MethodCallBack in '..\NoEngineLibs\MethodCallBack.pas',}
+    //Pylvl in '..\Engine\Pylvl.pas',
+  {$ENDIF}
+  {$IFDEF Stanislav}
+    Menulevel in '..\Games\Stanislav\Menulevel.pas',
+    GameElements in '..\Games\Stanislav\GameElements.pas',
+    level1 in '..\Games\Stanislav\level1.pas',
+  {$ENDIF}
+  {$IFDEF SpaceStrat}
+    Menulevel in '..\Games\SpaceStrat\Menulevel.pas',
+    PlanetParade in '..\Games\SpaceStrat\PlanetParade.pas',
+    GameUI in '..\Games\SpaceStrat\GameUI.pas',
+    GameElements in '..\Games\SpaceStrat\GameElements.pas',
+    level1 in '..\Games\SpaceStrat\level1.pas',
+    GameElements.PlanetParade in '..\Games\SpaceStrat\GameElements.PlanetParade.pas',
+    GameElements.Camera in '..\Games\SpaceStrat\GameElements.Camera.pas',
+  {$ENDIF}
+  AG.Logs in '..\NoEngineLibs\AGLogs\AG.Logs.pas',
+  AG.Resources;
+
+var
+  s:string;
+  br,br1:TAGBrush;
+  {$IFDEF D3D9}mes:TAGMesh;{$ENDIF}
+  Game:TAGGame;
+  pics:array[0..10]of TAGBitMap;
+  line_len:Word;
+  vecc:TAGScreenVector=(X:700;Y:700);   
+  Mouse:TAGScreenVector=(X:700;Y:700);
+  i:integer;
+
+{$IFDEF Test}
+procedure init(Core:TAGGraphicCore);
+var
+  i:integer;
+begin
+  br:=Core.CreateBrush(WiteColor);
+  br1:=Core.CreateBrush(GreenColor);
+  {$IFDEF D3D9}
+    mes:=core.LoadXFile('bigship1.x',[]);
+    //mes:=Core.LoadXFile('..\Data\Planet_00\planet_01.X',[]);
+    Core.AddDirectLight(TAG3DVector.Create(1,-1,1),witecolor);
+  {$ELSE}
+    for i:=8 to 8 do
+      pics[i]:=Core.CreateBitMapFromFile(IntToStr(i)+'.bmp');
+  {$ENDIF}
+end;
+
+procedure maindraw(Core:TAGGraphicCore);
+const
+  pos:TAGScreenCoord=(X:0;Y:0;W:100;H:4000);
+  pos0:TAGScreenCoord=(X:300;Y:0;W:100;H:4000);
+  pos1:TAGScreenCoord=(X:1000;Y:30;W:500;H:30);
+  pos2:TAGScreenCoord=(X:100;Y:100;W:800;H:800);
+  vec0:TAGScreenVector=(X:500;Y:500);
+  vec1:TAGScreenVector=(X:100;Y:500);
+  vec2:TAGScreenVector=(X:100;Y:100);
+  vec3:TAGScreenVector=(X:500;Y:100);
+  vecc0:TAGScreenVector=(X:50;Y:200);
+var
+  i:integer;
+//  p:TAGScreenvector;
+begin
+{$IFDEF D3D9}
+  Core.SetCameraToObject(TAG3DVector.Create(500,400,-500),TAG3DVector.Create(0,0,0));
+  Core.Init3D;
+  Core.DrawMesh(mes,TAG3DMatrix.MkScale(2));
+  Core.DrawText(inttostr(Game.Window.FPS.NowFPS),pos,20,0,br);
+{$ELSE}
+  Core.Init2D;
+  Core.DrawPoint(vec0,20,br);
+  Core.DrawPoint(vec1,20,br);
+  Core.DrawPoint(vec2,20,br);
+  Core.DrawPoint(vec3,20,br);  
+  Core.DrawPoint(Mouse,20,br);
+  {Core.DrawText(inttostr(Game.Window.FPS.NowFPS),pos,20,0,br);}
+  Core.DrawText(s,pos0,20,0,br);
+  Core.DrawRectangle(TAGscreenCoord.Create(1000,100,400,400),20,br);
+  Core.DrawLine(vec1,vec2,20,br);
+  Core.DrawElips(vecc,vecc0,20,br1);
+  Core.DrawRectangle(pos2,2,br);
+  Core.FillRectangle(pos1,br);
+  Core.FillElips(vecc+vec2,vecc0,br1);
+  for i:=8 to 8 do
+    Core.DrawBitmap(pos2,pics[i],255,True);
+{$ENDIF}
+end;
+
+procedure keydown(key:byte;Info:TAGKeyInfo);
+begin
+line_len:=Info.Repeats;
+case key of
+  27:
+  begin
+    {$IFNDEF D3D9}
+      Game.GraphicCore.ReleaseBrush(br);
+      Game.GraphicCore.ReleaseBrush(br1);
+    {$ENDIF}
+    FreeAndNil(Game);
+    //Game.Exit;
+  end;
+  37:vecc.X:=vecc.X-100;
+  38:vecc.Y:=vecc.Y-100;
+  39:vecc.X:=vecc.X+100;
+  40:vecc.Y:=vecc.Y+100;
+else
+  s:=inttostr(key);
+end;
+end;
+
+procedure mUp(coord:TAGscreenVector);
+begin
+  s:=s+'1';
+  Mouse:=coord;
+end;
+
+procedure mDown(coord:TAGscreenVector);
+begin
+  s:=s+'0';  
+  Mouse:=coord;
+end;
+
+procedure MMDown(x,y:Integer);
+begin
+  Mouse:=TAGScreenVector.Create(x,y);
+end;
+{$ENDIF}
+
+{$IFDEF Android}
+procedure Start;
+{$ENDIF}
+begin
+//AGLoadICO('1.ico');
+{$IFNDEF Test}
+  SetLoadScreen(TAGEPreviewLoadScreen.Create);
+  {$IFDEF PyExample}
+  //PyLvlFileName:='..\Games\PyTest\Testlvl.py';
+  {$ENDIF}
+  {$IFDEF SpaceStrat}
+    LoadLevel({$IFDEF DEBUG}CPlanetParadeInfo{$ELSE}CPreviewlvlInfo{$ENDIF});
+  {$ELSE}
+    LoadLevel({$IFDEF PyExample}CScriptLevelInfo{$ELSE}TLevel1.Create(){$ENDIF});
+  {$ENDIF}
+{$ELSE}
+  Game:=TAGGame.Create('game','../main.log',init,maindraw,BlackColor,TAGScreensInfo.Screens[0],true);
+  Game.Destroy();
+  Game.GraphicCore.BackColor:=BlueColor;
+  game.Window.KeyProc:=keydown;
+
+  game.Window.Mouse.L.dwn:=mDown;
+  game.Window.Mouse.R.dwn:=mDown;
+  game.Window.Mouse.M.dwn:=mDown;
+  game.Window.Mouse.X.dwn:=mDown;
+  game.Window.Mouse.L.up:=mUp;
+  game.Window.Mouse.R.up:=mUp;
+  game.Window.Mouse.M.up:=mUp;
+  game.Window.Mouse.X.up:=mUp;
+  //AEGOnMouseDown:=MMDown;
+{$ENDIF}
+{$IFDEF Android}
+end;
+procedure Finish;
+begin
+{$ELSE}    
+Game.Start;
+{$ENDIF}
+{$IFDEF Test}
+  Game.GraphicCore.ReleaseBrush(br);
+  Game.GraphicCore.ReleaseBrush(br1);
+  {$IFDEF D3D9}
+    Game.GraphicCore.ReleaseMesh(mes);
+  {$ELSE}
+    //for i:=1 to 7 do
+      //Game.GraphicCore.ReleaseBitMap(pics[i]);
+  {$ENDIF}
+  FreeAndNil(Game);
+{$ENDIF}
+{$IFDEF Android}
+end;
+
+const
+  AndroidShit='Java_com_pascal_myapplication_Pascal_';
+exports
+  JNI_OnLoad,
+  JNI_OnUnload,
+  AEGWindowCreate name AndroidShit+'AEGWindowCreate',
+  AEGWindowResize name AndroidShit+'AEGWindowResize',
+  AEGStart name AndroidShit+'AEGStart',
+  AEGPaint name AndroidShit+'AEGPaint',    
+  AEGMouseUp name AndroidShit+'AEGMouseUp',
+  AEGMouseMove name AndroidShit+'AEGMouseMove',
+  AEGMouseDown name AndroidShit+'AEGMouseDown',    
+  AEGKeyUp name AndroidShit+'AEGKeyUp',
+  AEGKeyDown name AndroidShit+'AEGKeyDown',
+  AEGFinish name AndroidShit+'AEGFinish';
+
+begin
+  AEGOnStart:=Start();    
+  AEGOnFinish:=Finish();
+{$ENDIF}
+end.
+

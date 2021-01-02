@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="12"/>
+    <PathDelim Value="\"/>
+    <General>
+      <Flags>
+        <MainUnitHasCreateFormStatements Value="False"/>
+        <MainUnitHasTitleStatement Value="False"/>
+        <MainUnitHasScaledStatement Value="False"/>
+        <CompatibilityMode Value="True"/>
+      </Flags>
+      <SessionStorage Value="InProjectDir"/>
+      <Title Value="MainGame"/>
+      <UseAppBundle Value="False"/>
+      <Icon Value="0"/>
+    </General>
+    <BuildModes Count="6">
+      <Item1 Name="Default" Default="True"/>
+      <Item2 Name="Win32Debug">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="..\bin\MainGame"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir);..\NoEngineLibs\Imaging\Source"/>
+            <OtherUnitFiles Value="..\NoEngineLibs\Imaging\Source;..\NoEngineLibs\Imaging\Source\JpegLib;..\NoEngineLibs\Imaging\Source\ZLib;..\NoEngineLibs\Imaging\Extras\Extensions;..\NoEngineLibs\Imaging\Extras\Extensions\LibTiff;lib;..\Engine;..\Shaders;..\NoEngineLibs\Direct2D;..\NoEngineLibs\DelphiEGL;..\NoEngineLibs\OpenGLES30;..\NoEngineLibs\dglOpenGL;..\NoEngineLibs\TextSuite;..\NoEngineLibs\ZSTD"/>
+            <UnitOutputDirectory Value="..\bin\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Parsing>
+            <Style Value="1"/>
+            <SyntaxOptions>
+              <CStyleOperator Value="False"/>
+              <IncludeAssertionCode Value="True"/>
+              <AllowLabel Value="False"/>
+              <CPPInline Value="False"/>
+              <StaticKeyword Value="True"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <Checks>
+              <IOChecks Value="True"/>
+              <RangeChecks Value="True"/>
+              <OverflowChecks Value="True"/>
+              <StackChecks Value="True"/>
+            </Checks>
+            <VerifyObjMethodCallValidity Value="True"/>
+            <TargetCPU Value="i386"/>
+            <TargetOS Value="win32"/>
+            <Optimizations>
+              <OptimizationLevel Value="0"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <UseHeaptrc Value="True"/>
+              <TrashVariables Value="True"/>
+            </Debugging>
+            <LinkSmart Value="True"/>
+          </Linking>
+          <Other>
+            <Verbosity>
+              <ShoLineNum Value="True"/>
+              <ShowDebugInfo Value="True"/>
+              <ShowCond Value="True"/>
+            </Verbosity>
+            <WriteFPCLogo Value="False"/>
+            <CompilerMessages>
+              <IgnoredMessages idx11019="True" idx11018="True" idx5062="True" idx4046="True"/>
+            </CompilerMessages>
+            <CustomOptions Value="-dDONT_LINK_EXTRAS
+-dDebug"/>
+          </Other>
+        </CompilerOptions>
+      </Item2>
+      <Item3 Name="Win64Debug">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="..\bin\MainGame"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir);..\NoEngineLibs\Imaging\Source"/>
+            <OtherUnitFiles Value="..\NoEngineLibs\Imaging\Source;..\NoEngineLibs\Imaging\Source\JpegLib;..\NoEngineLibs\Imaging\Source\ZLib;..\NoEngineLibs\Imaging\Extras\Extensions;..\NoEngineLibs\Imaging\Extras\Extensions\LibTiff;lib;..\Engine;..\Shaders;..\NoEngineLibs\Direct2D;..\NoEngineLibs\DelphiEGL;..\NoEngineLibs\OpenGLES30;..\NoEngineLibs\dglOpenGL;..\NoEngineLibs\TextSuite;..\NoEngineLibs\ZSTD"/>
+            <UnitOutputDirectory Value="..\bin\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Parsing>
+            <Style Value="1"/>
+            <SyntaxOptions>
+              <CStyleOperator Value="False"/>
+              <IncludeAssertionCode Value="True"/>
+              <AllowLabel Value="False"/>
+              <CPPInline Value="False"/>
+              <StaticKeyword Value="True"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <Checks>
+              <IOChecks Value="True"/>
+              <RangeChecks Value="True"/>
+              <OverflowChecks Value="True"/>
+              <StackChecks Value="True"/>
+            </Checks>
+            <VerifyObjMethodCallValidity Value="True"/>
+            <TargetCPU Value="x86_64"/>
+            <TargetOS Value="win64"/>
+            <Optimizations>
+              <OptimizationLevel Value="0"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <DebugInfoType Value="dsDwarf2Set"/>
+              <TrashVariables Value="True"/>
+            </Debugging>
+            <LinkSmart Value="True"/>
+          </Linking>
+          <Other>
+            <Verbosity>
+              <ShoLineNum Value="True"/>
+              <ShowDebugInfo Value="True"/>
+              <ShowCond Value="True"/>
+            </Verbosity>
+            <WriteFPCLogo Value="False"/>
+            <CompilerMessages>
+              <IgnoredMessages idx11019="True" idx11018="True" idx5062="True" idx4046="True"/>
+            </CompilerMessages>
+            <CustomOptions Value="-dDONT_LINK_EXTRAS
+-dDebug"/>
+            <ExecuteBefore>
+              <Command Value="..\DataCompliter\bin\ShaderBuider.exe"/>
+              <ScanForMakeMsgs Value="True"/>
+            </ExecuteBefore>
+          </Other>
+        </CompilerOptions>
+      </Item3>
+      <Item4 Name="Android_Debug-arm">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="..\android\native\lib\armeabi\main"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir);..\NoEngineLibs\Imaging\Source"/>
+            <OtherUnitFiles Value="..\NoEngineLibs\Imaging\Source;..\NoEngineLibs\Imaging\Source\JpegLib;..\NoEngineLibs\Imaging\Source\ZLib;..\NoEngineLibs\Imaging\Extras\Extensions;..\NoEngineLibs\Imaging\Extras\Extensions\LibTiff;lib;..\Engine;..\Shaders;..\NoEngineLibs\Direct2D;..\NoEngineLibs\DelphiEGL;..\NoEngineLibs\OpenGLES30;..\NoEngineLibs\dglOpenGL;C:\codetyphon\binLibraries\android-4.4.x-api19-arm\;..\NoEngineLibs\Android-NDK-bind;..\NoEngineLibs\TextSuite;..\NoEngineLibs\ZSTD"/>
+            <UnitOutputDirectory Value="..\bin\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <CStyleOperator Value="False"/>
+              <AllowLabel Value="False"/>
+              <CPPInline Value="False"/>
+              <UseAnsiStrings Value="False"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <RelocatableUnit Value="True"/>
+            <TargetCPU Value="arm"/>
+            <TargetOS Value="android"/>
+            <Optimizations>
+              <OptimizationLevel Value="0"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <LinkSmart Value="True"/>
+            <Options>
+              <ExecutableType Value="Library"/>
+            </Options>
+          </Linking>
+          <Other>
+            <Verbosity>
+              <ShowWarn Value="False"/>
+              <ShowNotes Value="False"/>
+              <ShowHints Value="False"/>
+              <ShowAll Value="True"/>
+            </Verbosity>
+            <WriteFPCLogo Value="False"/>
+            <CustomOptions Value="-dDONT_LINK_EXTRAS
+-dDebug
+-dANDROID"/>
+          </Other>
+        </CompilerOptions>
+      </Item4>
+      <Item5 Name="Android_Debug-arm64">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="..\android\native\lib\arm64\main"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir);..\NoEngineLibs\Imaging\Source"/>
+            <OtherUnitFiles Value="..\NoEngineLibs\Imaging\Source;..\NoEngineLibs\Imaging\Source\JpegLib;..\NoEngineLibs\Imaging\Source\ZLib;..\NoEngineLibs\Imaging\Extras\Extensions;..\NoEngineLibs\Imaging\Extras\Extensions\LibTiff;lib;..\Engine;..\Shaders;..\NoEngineLibs\Direct2D;..\NoEngineLibs\DelphiEGL;..\NoEngineLibs\OpenGLES30;..\NoEngineLibs\dglOpenGL;C:\codetyphon\binLibraries\android-5.0.x-api21-aarch64\;..\NoEngineLibs\Android-NDK-bind;..\NoEngineLibs\TextSuite;..\NoEngineLibs\ZSTD"/>
+            <UnitOutputDirectory Value="..\bin\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <CStyleOperator Value="False"/>
+              <AllowLabel Value="False"/>
+              <CPPInline Value="False"/>
+              <UseAnsiStrings Value="False"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <RelocatableUnit Value="True"/>
+            <TargetCPU Value="aarch64"/>
+            <TargetOS Value="android"/>
+            <Optimizations>
+              <OptimizationLevel Value="0"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+            </Debugging>
+            <LinkSmart Value="True"/>
+            <Options>
+              <ExecutableType Value="Library"/>
+            </Options>
+          </Linking>
+          <Other>
+            <Verbosity>
+              <ShowWarn Value="False"/>
+              <ShowNotes Value="False"/>
+              <ShowHints Value="False"/>
+            </Verbosity>
+            <WriteFPCLogo Value="False"/>
+            <CustomOptions Value="-dANDROID
+-dDONT_LINK_EXTRAS
+-dDebug"/>
+          </Other>
+        </CompilerOptions>
+      </Item5>
+      <Item6 Name="Android_Debug-x86">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="..\android\native\lib\x86\main"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir);..\NoEngineLibs\Imaging\Source"/>
+            <OtherUnitFiles Value="..\NoEngineLibs\Imaging\Source;..\NoEngineLibs\Imaging\Source\JpegLib;..\NoEngineLibs\Imaging\Source\ZLib;..\NoEngineLibs\Imaging\Extras\Extensions;..\NoEngineLibs\Imaging\Extras\Extensions\LibTiff;lib;..\Engine;..\Shaders;..\NoEngineLibs\Direct2D;..\NoEngineLibs\DelphiEGL;..\NoEngineLibs\OpenGLES30;..\NoEngineLibs\dglOpenGL;C:\codetyphon\binLibraries\android-4.4.x-api19-arm\;..\NoEngineLibs\Android-NDK-bind;..\NoEngineLibs\TextSuite;..\NoEngineLibs\ZSTD"/>
+            <UnitOutputDirectory Value="..\bin\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Parsing>
+            <Style Value="1"/>
+            <SyntaxOptions>
+              <CStyleOperator Value="False"/>
+              <AllowLabel Value="False"/>
+              <CPPInline Value="False"/>
+              <StaticKeyword Value="True"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <RelocatableUnit Value="True"/>
+            <TargetCPU Value="i386"/>
+            <TargetOS Value="android"/>
+            <Optimizations>
+              <OptimizationLevel Value="0"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <LinkSmart Value="True"/>
+            <Options>
+              <ExecutableType Value="Library"/>
+            </Options>
+          </Linking>
+          <Other>
+            <Verbosity>
+              <ShowWarn Value="False"/>
+              <ShowNotes Value="False"/>
+              <ShowHints Value="False"/>
+            </Verbosity>
+            <WriteFPCLogo Value="False"/>
+            <CustomOptions Value="-dDONT_LINK_EXTRAS
+-dDebug"/>
+          </Other>
+        </CompilerOptions>
+      </Item6>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0"/>
+    </RunParams>
+    <Units Count="13">
+      <Unit0>
+        <Filename Value="MainGame.ppr"/>
+        <FRMtype Value="0"/>
+        <IsPartOfProject Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="..\NoEngineLibs\AGLogs\AG.Logs.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="lib\AG.Resources.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\Games\SpaceStrat\Menulevel.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="MenuLevel"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\Games\SpaceStrat\PlanetParade.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\Games\SpaceStrat\GameUI.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\Games\SpaceStrat\GameElements.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="..\Games\SpaceStrat\level1.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="..\Games\SpaceStrat\GameElements.PlanetParade.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="..\Games\SpaceStrat\GameElements.Camera.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="..\Games\stanislav\Menulevel.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="MenuLevel"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="..\Games\stanislav\level1.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="..\Games\stanislav\GameElements.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit12>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <PathDelim Value="\"/>
+    <Target>
+      <Filename Value="..\bin\MainGame"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir);..\NoEngineLibs\Imaging\Source"/>
+      <OtherUnitFiles Value="..\NoEngineLibs\Imaging\Source;..\NoEngineLibs\Imaging\Source\JpegLib;..\NoEngineLibs\Imaging\Source\ZLib;..\NoEngineLibs\Imaging\Extras\Extensions;..\NoEngineLibs\Imaging\Extras\Extensions\LibTiff;lib;..\Engine;..\Shaders;..\NoEngineLibs\Direct2D;..\NoEngineLibs\DelphiEGL;..\NoEngineLibs\OpenGLES30;..\NoEngineLibs\dglOpenGL;..\NoEngineLibs\TextSuite;..\NoEngineLibs\ZSTD"/>
+      <UnitOutputDirectory Value="..\bin\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Parsing>
+      <Style Value="1"/>
+      <SyntaxOptions>
+        <CStyleOperator Value="False"/>
+        <AllowLabel Value="False"/>
+        <CPPInline Value="False"/>
+        <StaticKeyword Value="True"/>
+      </SyntaxOptions>
+    </Parsing>
+    <CodeGeneration>
+      <SmartLinkUnit Value="True"/>
+      <Optimizations>
+        <OptimizationLevel Value="3"/>
+      </Optimizations>
+    </CodeGeneration>
+    <Linking>
+      <LinkSmart Value="True"/>
+    </Linking>
+    <Other>
+      <Verbosity>
+        <ShoLineNum Value="True"/>
+        <ShowDebugInfo Value="True"/>
+        <ShowCond Value="True"/>
+      </Verbosity>
+      <WriteFPCLogo Value="False"/>
+      <CompilerMessages>
+        <IgnoredMessages idx11019="True" idx11018="True" idx5062="True" idx4046="True"/>
+      </CompilerMessages>
+      <CustomOptions Value="-dDONT_LINK_EXTRAS
+-dDebug"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="4">
+      <Item1>
+        <Name Value="EAbort"/>
+        <Enabled Value="False"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+        <Enabled Value="False"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+        <Enabled Value="False"/>
+      </Item3>
+      <Item4>
+        <Name Value="ESafecallException"/>
+        <Enabled Value="False"/>
+      </Item4>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

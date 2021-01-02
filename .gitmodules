@@ -10,3 +10,9 @@
 [submodule "NoEngineLibs/Imaging"]
 	path = NoEngineLibs/Imaging
 	url = git@github.com:galfar/imaginglib.git
+[submodule "NoEngineLibs/dglOpenGL"]
+	path = NoEngineLibs/dglOpenGL
+	url = git@github.com:SaschaWillems/dglOpenGL.git
+[submodule "NoEngineLibs/TextSuite"]
+	path = NoEngineLibs/TextSuite
+	url = git@git.teamfnd.ru:artem3213212/TextSuite.git

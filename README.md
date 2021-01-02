@@ -1,6 +1,6 @@
 # AG_>EngineAlpha
 
-*** The project is abandoned but you can still fork it or write several issues ***
+***The project is abandoned but you can still fork it or write several issues***
 
 ## master branch
 
